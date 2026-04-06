@@ -163,55 +163,60 @@ namespace GroupAssginment
             this.cmbGrade1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGrade1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cmbGrade1.FormattingEnabled = true;
-            this.cmbGrade1.Location = new System.Drawing.Point(104, 34);
+            this.cmbGrade1.Location = new System.Drawing.Point(80, 34);
             this.cmbGrade1.Margin = new System.Windows.Forms.Padding(2);
             this.cmbGrade1.Name = "cmbGrade1";
             this.cmbGrade1.Size = new System.Drawing.Size(76, 24);
             this.cmbGrade1.TabIndex = 7;
+            this.cmbGrade1.SelectedIndexChanged += new System.EventHandler(this.cmbGrade1_SelectedIndexChanged);
             // 
             // cmbGrade2
             // 
             this.cmbGrade2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGrade2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cmbGrade2.FormattingEnabled = true;
-            this.cmbGrade2.Location = new System.Drawing.Point(104, 66);
+            this.cmbGrade2.Location = new System.Drawing.Point(80, 66);
             this.cmbGrade2.Margin = new System.Windows.Forms.Padding(2);
             this.cmbGrade2.Name = "cmbGrade2";
             this.cmbGrade2.Size = new System.Drawing.Size(76, 24);
             this.cmbGrade2.TabIndex = 8;
+            this.cmbGrade2.SelectedIndexChanged += new System.EventHandler(this.cmbGrade2_SelectedIndexChanged);
             // 
             // cmbGrade3
             // 
             this.cmbGrade3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGrade3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cmbGrade3.FormattingEnabled = true;
-            this.cmbGrade3.Location = new System.Drawing.Point(104, 99);
+            this.cmbGrade3.Location = new System.Drawing.Point(80, 99);
             this.cmbGrade3.Margin = new System.Windows.Forms.Padding(2);
             this.cmbGrade3.Name = "cmbGrade3";
             this.cmbGrade3.Size = new System.Drawing.Size(76, 24);
             this.cmbGrade3.TabIndex = 9;
+            this.cmbGrade3.SelectedIndexChanged += new System.EventHandler(this.cmbGrade3_SelectedIndexChanged);
             // 
             // cmbGrade4
             // 
             this.cmbGrade4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGrade4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cmbGrade4.FormattingEnabled = true;
-            this.cmbGrade4.Location = new System.Drawing.Point(104, 131);
+            this.cmbGrade4.Location = new System.Drawing.Point(80, 131);
             this.cmbGrade4.Margin = new System.Windows.Forms.Padding(2);
             this.cmbGrade4.Name = "cmbGrade4";
             this.cmbGrade4.Size = new System.Drawing.Size(76, 24);
             this.cmbGrade4.TabIndex = 10;
+            this.cmbGrade4.SelectedIndexChanged += new System.EventHandler(this.cmbGrade4_SelectedIndexChanged);
             // 
             // cmbGrade5
             // 
             this.cmbGrade5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGrade5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cmbGrade5.FormattingEnabled = true;
-            this.cmbGrade5.Location = new System.Drawing.Point(104, 164);
+            this.cmbGrade5.Location = new System.Drawing.Point(80, 164);
             this.cmbGrade5.Margin = new System.Windows.Forms.Padding(2);
             this.cmbGrade5.Name = "cmbGrade5";
             this.cmbGrade5.Size = new System.Drawing.Size(76, 24);
             this.cmbGrade5.TabIndex = 11;
+            this.cmbGrade5.SelectedIndexChanged += new System.EventHandler(this.cmbGrade5_SelectedIndexChanged);
             // 
             // btnSaveGrades
             // 

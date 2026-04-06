@@ -136,5 +136,30 @@ namespace GroupAssginment
         {
             Application.Exit();
         }
+
+        private void cmbGrade5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbGrade2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbGrade4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbGrade3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbGrade1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

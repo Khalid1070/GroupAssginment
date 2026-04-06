@@ -32,53 +32,58 @@ namespace GroupAssginment
             this.btnStudent = new System.Windows.Forms.Button();
             this.btnFaculty = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            //
+            // 
             // lblTitle
-            //
+            // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(200, 50);
+            this.lblTitle.Location = new System.Drawing.Point(150, 41);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(370, 31);
+            this.lblTitle.Size = new System.Drawing.Size(310, 26);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Student Grade Management";
-            //
+            // 
             // btnStudent
-            //
+            // 
             this.btnStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnStudent.Location = new System.Drawing.Point(180, 140);
+            this.btnStudent.Location = new System.Drawing.Point(135, 114);
+            this.btnStudent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnStudent.Name = "btnStudent";
-            this.btnStudent.Size = new System.Drawing.Size(200, 50);
+            this.btnStudent.Size = new System.Drawing.Size(150, 41);
             this.btnStudent.TabIndex = 1;
             this.btnStudent.Text = "Student";
             this.btnStudent.UseVisualStyleBackColor = true;
             this.btnStudent.Click += new System.EventHandler(this.btnStudent_Click);
-            //
+            // 
             // btnFaculty
-            //
+            // 
             this.btnFaculty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnFaculty.Location = new System.Drawing.Point(420, 140);
+            this.btnFaculty.Location = new System.Drawing.Point(315, 114);
+            this.btnFaculty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnFaculty.Name = "btnFaculty";
-            this.btnFaculty.Size = new System.Drawing.Size(200, 50);
+            this.btnFaculty.Size = new System.Drawing.Size(150, 41);
             this.btnFaculty.TabIndex = 2;
             this.btnFaculty.Text = "Faculty";
             this.btnFaculty.UseVisualStyleBackColor = true;
             this.btnFaculty.Click += new System.EventHandler(this.btnFaculty_Click);
-            //
+            // 
             // Form1
-            //
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 280);
+            this.ClientSize = new System.Drawing.Size(600, 228);
             this.Controls.Add(this.btnFaculty);
             this.Controls.Add(this.btnStudent);
             this.Controls.Add(this.lblTitle);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
