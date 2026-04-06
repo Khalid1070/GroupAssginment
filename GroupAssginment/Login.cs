@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 using System.Windows.Forms;
 
 namespace GroupAssginment
@@ -17,20 +10,23 @@ namespace GroupAssginment
             InitializeComponent();
         }
 
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnStudent_Click(object sender, EventArgs e)
         {
-
+            Student studentForm = new Student();
+            studentForm.Show();
+            this.Hide();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnFaculty_Click(object sender, EventArgs e)
         {
-            //rrr1234123
+            Faculty facultyForm = new Faculty();
+            facultyForm.Show();
+            this.Hide();
         }
     }
 }
