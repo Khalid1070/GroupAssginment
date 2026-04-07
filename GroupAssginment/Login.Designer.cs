@@ -51,6 +51,7 @@ namespace GroupAssginment
             this.textBox_pass.Name = "textBox_pass";
             this.textBox_pass.Size = new System.Drawing.Size(408, 22);
             this.textBox_pass.TabIndex = 4;
+            this.textBox_pass.UseSystemPasswordChar = true;
             // 
             // label1
             // 
