@@ -12,10 +12,8 @@ namespace GroupAssginment
         // 1D array for student IDs / usernames
         private string[] studentIds = new string[100];
 
-        // 2D array for grades of multiple students across multiple courses
         private string[,] studentGrades = new string[100, 5];
 
-        // 1D array for GPA values
         private string[] studentGPAs = new string[100];
 
         // number of students loaded from file
