@@ -6,7 +6,6 @@ namespace GroupAssginment
 {
     public partial class Faculty : Form
     {
-        // 1D array for course names
         private string[] courseNames = { "MIS302", "ICS104", "MATH101", "IAS212", "ENG102" };
 
         public Faculty()
@@ -32,7 +31,6 @@ namespace GroupAssginment
 
             string fileName = "Students info.txt";
 
-            // Check if file exists
             if (!File.Exists(fileName))
             {
                 MessageBox.Show("No student records found. Students need to enter grades first.");
