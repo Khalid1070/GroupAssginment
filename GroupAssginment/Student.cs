@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace GroupAssginment
@@ -11,9 +12,13 @@ namespace GroupAssginment
         // 1D array to store grades for this student
         private string[] grades = new string[5];
 
-        public Student()
+        // store the logged-in student username
+        private string studentUsername;
+
+        public Student(string username)
         {
             InitializeComponent();
+            studentUsername = username;
         }
 
         private void Student_Load(object sender, EventArgs e)
@@ -50,7 +55,62 @@ namespace GroupAssginment
             grades[3] = cmbGrade4.SelectedItem.ToString();
             grades[4] = cmbGrade5.SelectedItem.ToString();
 
+            // Calculate GPA
+            double totalPoints = 0;
+            for (int i = 0; i < grades.Length; i++)
+            {
+                totalPoints += GetGradePoints(grades[i]);
+            }
+            double gpa = totalPoints / grades.Length;
+
+            // Save to "Students info.txt" file
+            // Format: username,grade1,grade2,grade3,grade4,grade5,GPA
+            SaveToFile(gpa);
+
             MessageBox.Show("Grades saved successfully!");
+        }
+
+        private void SaveToFile(double gpa)
+        {
+            string fileName = "Students info.txt";
+            string newLine = studentUsername + "," +
+                             grades[0] + "," + grades[1] + "," +
+                             grades[2] + "," + grades[3] + "," +
+                             grades[4] + "," + gpa.ToString("F2");
+
+            // Read all existing lines (if file exists)
+            string[] existingLines = new string[0];
+            if (File.Exists(fileName))
+            {
+                existingLines = File.ReadAllLines(fileName);
+            }
+
+            // Check if this student already has a record and update it
+            bool updated = false;
+            StreamWriter outputFile = File.CreateText(fileName);
+
+            for (int i = 0; i < existingLines.Length; i++)
+            {
+                if (existingLines[i].StartsWith(studentUsername + ","))
+                {
+                    // Replace old record with new one
+                    outputFile.WriteLine(newLine);
+                    updated = true;
+                }
+                else
+                {
+                    // Keep existing record
+                    outputFile.WriteLine(existingLines[i]);
+                }
+            }
+
+            // If student had no previous record, add new line
+            if (!updated)
+            {
+                outputFile.WriteLine(newLine);
+            }
+
+            outputFile.Close();
         }
 
         private void btnViewGrades_Click(object sender, EventArgs e)
@@ -121,15 +181,13 @@ namespace GroupAssginment
         // MenuStrip event handlers
         private void returnToLoginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 loginForm = new Form1();
-            loginForm.Show();
             this.Close();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Team Members:\nYour Name - Your ID\nMember 2 - ID\nMember 3 - ID",
-                            "About");
+            MessageBox.Show("Team Members:\nMuneeb Al Talaq - 202367270\nAnas Bendania  - 202467940\nKhalid Alghamdi - 202185210",
+                             "About");
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

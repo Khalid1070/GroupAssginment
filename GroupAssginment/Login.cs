@@ -16,13 +16,11 @@ namespace GroupAssginment
 
         }
 
-       
         private void lblTitle_Click(object sender, EventArgs e)
         {
 
         }
 
-      
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -30,11 +28,18 @@ namespace GroupAssginment
 
         private void button_LogIn_Click(object sender, EventArgs e)
         {
-            //read username and password from textboxes
+            // read username and password from textboxes
             string username = textBox_userName.Text.Trim();
             string password = textBox_pass.Text.Trim();
 
-            //check if users.txt file exists
+            // check if both fields are filled
+            if (username == "" || password == "")
+            {
+                MessageBox.Show("Please enter both username and password.");
+                return;
+            }
+
+            // check if users.txt file exists
             if (!File.Exists("users.txt"))
             {
                 MessageBox.Show("users.txt file not found.");
@@ -43,7 +48,7 @@ namespace GroupAssginment
 
             bool found = false;
 
-            //read users.txt file line by line
+            // read users.txt file line by line
             StreamReader inputFile = File.OpenText("users.txt");
 
             while (!inputFile.EndOfStream)
@@ -51,20 +56,21 @@ namespace GroupAssginment
                 string line = inputFile.ReadLine();
                 string[] parts = line.Split(',');
 
-                //check if line has 3 parts (username, password, job)
+                // check if line has 3 parts (username, password, job)
                 if (parts.Length == 3)
                 {
                     string fileUser = parts[0];
                     string filePass = parts[1];
                     string job = parts[2];
 
-                    //compare with input username and password
+                    // compare with input username and password
                     if (username == fileUser && password == filePass)
                     {
                         found = true;
+
                         if (job == "Student")
                         {
-                            Student sForm = new Student();
+                            Student sForm = new Student(username);
                             sForm.ShowDialog();
                         }
                         else if (job == "Faculty")
@@ -75,14 +81,6 @@ namespace GroupAssginment
 
                         break;
                     }
-                    else 
-                    {
-                        MessageBox.Show("Invalid username or password.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Invalid line format in users.txt" );
                 }
             }
 
@@ -99,5 +97,4 @@ namespace GroupAssginment
             this.Close();
         }
     }
-    
 }
