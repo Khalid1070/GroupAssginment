@@ -171,7 +171,7 @@
             // 
             this.txtStudentID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtStudentID.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtStudentID.Location = new System.Drawing.Point(190, 40);
+            this.txtStudentID.Location = new System.Drawing.Point(195, 40);
             this.txtStudentID.Name = "txtStudentID";
             this.txtStudentID.Size = new System.Drawing.Size(220, 30);
             this.txtStudentID.TabIndex = 1;
