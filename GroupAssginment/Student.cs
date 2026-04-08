@@ -1,17 +1,14 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
-
 namespace GroupAssginment
 {
     public partial class Student : Form
     {
         // 1D array for course names
         private string[] courseNames = { "MIS302", "ICS104", "MATH101", "IAS212", "ENG102" };
-
         // 1D array to store grades for this student
         private string[] grades = new string[5];
-
         // store the logged-in student username
         private string studentUsername;
 
@@ -25,16 +22,63 @@ namespace GroupAssginment
         {
             // Add grade options to all combo boxes
             string[] gradeOptions = { "A", "B", "C", "D", "F" };
-
             cmbGrade1.Items.AddRange(gradeOptions);
             cmbGrade2.Items.AddRange(gradeOptions);
             cmbGrade3.Items.AddRange(gradeOptions);
             cmbGrade4.Items.AddRange(gradeOptions);
             cmbGrade5.Items.AddRange(gradeOptions);
 
-            // Clear display labels
-            lblGradesDisplay.Text = "";
+            // Clear result labels
+            ClearResultLabels();
             lblGPA.Text = "";
+        }
+
+        // -------------------------------------------------------
+        // Styles a grade badge label with a color based on grade
+        // -------------------------------------------------------
+        private void StyleGradeBadge(Label lbl, string grade)
+        {
+            lbl.Text = grade;
+            switch (grade)
+            {
+                case "A":
+                    lbl.BackColor = System.Drawing.Color.FromArgb(22, 163, 74);   // green
+                    lbl.ForeColor = System.Drawing.Color.White;
+                    break;
+                case "B":
+                    lbl.BackColor = System.Drawing.Color.FromArgb(14, 165, 233);  // sky blue
+                    lbl.ForeColor = System.Drawing.Color.White;
+                    break;
+                case "C":
+                    lbl.BackColor = System.Drawing.Color.FromArgb(202, 138, 4);   // amber
+                    lbl.ForeColor = System.Drawing.Color.White;
+                    break;
+                case "D":
+                    lbl.BackColor = System.Drawing.Color.FromArgb(249, 115, 22);  // orange
+                    lbl.ForeColor = System.Drawing.Color.White;
+                    break;
+                case "F":
+                    lbl.BackColor = System.Drawing.Color.FromArgb(220, 38, 38);   // red
+                    lbl.ForeColor = System.Drawing.Color.White;
+                    break;
+                default:
+                    lbl.BackColor = System.Drawing.Color.FromArgb(226, 232, 240); // gray
+                    lbl.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+                    break;
+            }
+        }
+
+        // Resets all grade badge labels to empty / default style
+        private void ClearResultLabels()
+        {
+            Label[] badges = { lblResGradeVal1, lblResGradeVal2, lblResGradeVal3,
+                               lblResGradeVal4, lblResGradeVal5 };
+            foreach (Label lbl in badges)
+            {
+                lbl.Text = "";
+                lbl.BackColor = System.Drawing.Color.FromArgb(226, 232, 240);
+                lbl.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            }
         }
 
         private void btnSaveGrades_Click(object sender, EventArgs e)
@@ -64,9 +108,7 @@ namespace GroupAssginment
             double gpa = totalPoints / grades.Length;
 
             // Save to "Students info.txt" file
-            // Format: username,grade1,grade2,grade3,grade4,grade5,GPA
             SaveToFile(gpa);
-
             MessageBox.Show("Grades saved successfully!");
         }
 
@@ -78,38 +120,30 @@ namespace GroupAssginment
                              grades[2] + "," + grades[3] + "," +
                              grades[4] + "," + gpa.ToString("F2");
 
-            // Read all existing lines (if file exists)
             string[] existingLines = new string[0];
             if (File.Exists(fileName))
             {
                 existingLines = File.ReadAllLines(fileName);
             }
 
-            // Check if this student already has a record and update it
             bool updated = false;
             StreamWriter outputFile = File.CreateText(fileName);
-
             for (int i = 0; i < existingLines.Length; i++)
             {
                 if (existingLines[i].StartsWith(studentUsername + ","))
                 {
-                    // Replace old record with new one
                     outputFile.WriteLine(newLine);
                     updated = true;
                 }
                 else
                 {
-                    // Keep existing record
                     outputFile.WriteLine(existingLines[i]);
                 }
             }
-
-            // If student had no previous record, add new line
             if (!updated)
             {
                 outputFile.WriteLine(newLine);
             }
-
             outputFile.Close();
         }
 
@@ -122,14 +156,13 @@ namespace GroupAssginment
                 return;
             }
 
-            // Display grades using the 1D arrays
-            string display = "";
-            for (int i = 0; i < courseNames.Length; i++)
+            // Display each grade in its own styled badge label
+            Label[] badges = { lblResGradeVal1, lblResGradeVal2, lblResGradeVal3,
+                               lblResGradeVal4, lblResGradeVal5 };
+            for (int i = 0; i < grades.Length; i++)
             {
-                display += courseNames[i] + ": " + grades[i] + "   ";
+                StyleGradeBadge(badges[i], grades[i]);
             }
-
-            lblGradesDisplay.Text = display;
         }
 
         private void btnCalculateGPA_Click(object sender, EventArgs e)
@@ -142,14 +175,31 @@ namespace GroupAssginment
             }
 
             double totalPoints = 0;
-
             for (int i = 0; i < grades.Length; i++)
             {
                 totalPoints += GetGradePoints(grades[i]);
             }
-
             double gpa = totalPoints / grades.Length;
-            lblGPA.Text = "Your GPA: " + gpa.ToString("F2");
+
+            lblGPA.Text = "GPA: " + gpa.ToString("F2");
+
+            // Color-code the GPA label
+            if (gpa >= 3.5)
+            {
+                lblGPA.ForeColor = System.Drawing.Color.FromArgb(22, 163, 74);   // green - excellent
+            }
+            else if (gpa >= 2.5)
+            {
+                lblGPA.ForeColor = System.Drawing.Color.FromArgb(14, 165, 233);  // blue - good
+            }
+            else if (gpa >= 1.5)
+            {
+                lblGPA.ForeColor = System.Drawing.Color.FromArgb(202, 138, 4);   // amber - average
+            }
+            else
+            {
+                lblGPA.ForeColor = System.Drawing.Color.FromArgb(220, 38, 38);   // red - poor
+            }
         }
 
         private int GetGradePoints(string grade)
@@ -173,9 +223,9 @@ namespace GroupAssginment
             cmbGrade3.SelectedIndex = -1;
             cmbGrade4.SelectedIndex = -1;
             cmbGrade5.SelectedIndex = -1;
-
-            lblGradesDisplay.Text = "";
+            ClearResultLabels();
             lblGPA.Text = "";
+            lblGPA.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
         }
 
         // MenuStrip event handlers
@@ -195,29 +245,10 @@ namespace GroupAssginment
             Application.Exit();
         }
 
-        private void cmbGrade5_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbGrade2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbGrade4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbGrade3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbGrade1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void cmbGrade5_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void cmbGrade2_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void cmbGrade4_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void cmbGrade3_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void cmbGrade1_SelectedIndexChanged(object sender, EventArgs e) { }
     }
 }
