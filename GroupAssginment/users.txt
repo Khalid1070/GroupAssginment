@@ -1,3 +1,3 @@
-student1,pass123,Student
-student2,pass456,Student
-faculty1,prof123,Faculty
+stu1,1234,Student
+stu2,1212,Student
+doctor1,1233,Faculty
