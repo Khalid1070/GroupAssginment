@@ -41,16 +41,19 @@ namespace GroupAssginment
                 return;
             }
 
-            if (!File.Exists("users.txt"))
+            // Always resolve users.txt from the application's own folder
+            string filePath = System.IO.Path.Combine(Application.StartupPath, "users.txt");
+
+            if (!File.Exists(filePath))
             {
-                lblLoginError.Text = "users.txt file not found.";
+                lblLoginError.Text = "No accounts found. Please sign up first.";
                 lblLoginError.Visible = true;
                 return;
             }
 
             bool found = false;
 
-            StreamReader inputFile = File.OpenText("users.txt");
+            StreamReader inputFile = File.OpenText(filePath);
             while (!inputFile.EndOfStream)
             {
                 string line = inputFile.ReadLine();
@@ -102,7 +105,10 @@ namespace GroupAssginment
                             "About");
         }
 
-
+        // -------------------------------------------------------
+        // LinkLabel: "Don't have an account? Sign Up"
+        // Opens the Sign Up form
+        // -------------------------------------------------------
         private void linkLabel_SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             SignUp signUpForm = new SignUp();

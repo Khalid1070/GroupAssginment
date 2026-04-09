@@ -101,9 +101,11 @@ namespace GroupAssginment
                 return;
             }
 
-            if (File.Exists("users.txt"))
+            string filePath = System.IO.Path.Combine(Application.StartupPath, "users.txt");
+
+            if (File.Exists(filePath))
             {
-                StreamReader checkFile = File.OpenText("users.txt");
+                StreamReader checkFile = File.OpenText(filePath);
                 while (!checkFile.EndOfStream)
                 {
                     string line = checkFile.ReadLine();
@@ -119,7 +121,7 @@ namespace GroupAssginment
                 checkFile.Close();
             }
 
-            StreamWriter outputFile = new StreamWriter("users.txt", true); // true = append
+            StreamWriter outputFile = new StreamWriter(filePath, true); // true = append
             outputFile.WriteLine(username + "," + password + "," + role);
             outputFile.Close();
 
@@ -128,7 +130,7 @@ namespace GroupAssginment
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
 
-            this.Close(); 
+            this.Close(); // Return to Login Form
         }
 
 
