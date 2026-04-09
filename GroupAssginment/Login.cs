@@ -102,10 +102,7 @@ namespace GroupAssginment
                             "About");
         }
 
-        // -------------------------------------------------------
-        // LinkLabel: "Don't have an account? Sign Up"
-        // Opens the Sign Up form
-        // -------------------------------------------------------
+
         private void linkLabel_SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             SignUp signUpForm = new SignUp();
