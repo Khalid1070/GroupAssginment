@@ -19,25 +19,21 @@ namespace GroupAssginment
 
         private void lblTitle_Click(object sender, EventArgs e)
         {
-
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void button_LogIn_Click(object sender, EventArgs e)
         {
-            // clear old error message
+            // Clear old error message
             lblLoginError.Text = "";
             lblLoginError.Visible = false;
 
-            // read username and password from textboxes
             string username = textBox_userName.Text.Trim();
             string password = textBox_pass.Text.Trim();
 
-            // check if both fields are filled
             if (username == "" || password == "")
             {
                 lblLoginError.Text = "Please enter both username and password.";
@@ -45,7 +41,6 @@ namespace GroupAssginment
                 return;
             }
 
-            // check if users.txt file exists
             if (!File.Exists("users.txt"))
             {
                 lblLoginError.Text = "users.txt file not found.";
@@ -55,22 +50,18 @@ namespace GroupAssginment
 
             bool found = false;
 
-            // read users.txt file line by line
             StreamReader inputFile = File.OpenText("users.txt");
-
             while (!inputFile.EndOfStream)
             {
                 string line = inputFile.ReadLine();
                 string[] parts = line.Split(',');
 
-                // check if line has 3 parts (username, password, job)
                 if (parts.Length == 3)
                 {
                     string fileUser = parts[0];
                     string filePass = parts[1];
                     string job = parts[2];
 
-                    // compare with input username and password
                     if (username == fileUser && password == filePass)
                     {
                         found = true;
@@ -87,12 +78,10 @@ namespace GroupAssginment
                             Faculty fForm = new Faculty();
                             fForm.ShowDialog();
                         }
-
                         break;
                     }
                 }
             }
-
             inputFile.Close();
 
             if (!found)
@@ -111,6 +100,16 @@ namespace GroupAssginment
         {
             MessageBox.Show("Team Members:\nMuneeb Al Talaq - 202367270\nAnas Bendania - 202467940\nKhalid Alghamdi - 202185210",
                             "About");
+        }
+
+        // -------------------------------------------------------
+        // LinkLabel: "Don't have an account? Sign Up"
+        // Opens the Sign Up form
+        // -------------------------------------------------------
+        private void linkLabel_SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SignUp signUpForm = new SignUp();
+            signUpForm.ShowDialog();
         }
     }
 }
