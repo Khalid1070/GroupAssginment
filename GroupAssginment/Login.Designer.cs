@@ -37,11 +37,11 @@ namespace GroupAssginment
             // 
             // panelTop
             // 
-            this.panelTop.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.panelTop.Controls.Add(this.lblSubTitle);
             this.panelTop.Controls.Add(this.lblTitle);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(0, 28);
+            this.panelTop.Location = new System.Drawing.Point(0, 30);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(800, 110);
             this.panelTop.TabIndex = 0;
@@ -53,7 +53,7 @@ namespace GroupAssginment
             this.lblSubTitle.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblSubTitle.Location = new System.Drawing.Point(36, 67);
             this.lblSubTitle.Name = "lblSubTitle";
-            this.lblSubTitle.Size = new System.Drawing.Size(167, 23);
+            this.lblSubTitle.Size = new System.Drawing.Size(163, 23);
             this.lblSubTitle.TabIndex = 1;
             this.lblSubTitle.Text = "Please sign in below";
             // 
@@ -64,21 +64,21 @@ namespace GroupAssginment
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(32, 22);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(378, 41);
+            this.lblTitle.Size = new System.Drawing.Size(346, 41);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Student Grade Manager";
             this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -86,7 +86,7 @@ namespace GroupAssginment
             // 
             this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -140,7 +140,7 @@ namespace GroupAssginment
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.label1.Location = new System.Drawing.Point(32, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(150, 28);
@@ -151,7 +151,7 @@ namespace GroupAssginment
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.label2.Location = new System.Drawing.Point(32, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(150, 28);
@@ -160,7 +160,7 @@ namespace GroupAssginment
             // 
             // button_LogIn
             // 
-            this.button_LogIn.BackColor = System.Drawing.Color.FromArgb(37, 99, 235);
+            this.button_LogIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
             this.button_LogIn.FlatAppearance.BorderSize = 0;
             this.button_LogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_LogIn.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
@@ -176,7 +176,7 @@ namespace GroupAssginment
             // 
             // button_Exit
             // 
-            this.button_Exit.BackColor = System.Drawing.Color.FromArgb(239, 68, 68);
+            this.button_Exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.button_Exit.FlatAppearance.BorderSize = 0;
             this.button_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Exit.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
@@ -194,7 +194,7 @@ namespace GroupAssginment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(800, 500);
             this.Controls.Add(this.panelCard);
             this.Controls.Add(this.panelTop);
@@ -215,6 +215,7 @@ namespace GroupAssginment
             this.panelCard.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
