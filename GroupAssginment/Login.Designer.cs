@@ -20,129 +20,185 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.textBox_userName = new System.Windows.Forms.TextBox();
             this.textBox_pass = new System.Windows.Forms.TextBox();
             this.button_LogIn = new System.Windows.Forms.Button();
             this.button_Exit = new System.Windows.Forms.Button();
             this.lblLoginError = new System.Windows.Forms.Label();
             this.linkLabel_SignUp = new System.Windows.Forms.LinkLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.AAA = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.AAA.SuspendLayout();
             this.SuspendLayout();
-
-            // ── menuStrip1 ──────────────────────────────────────────
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.DarkGray;
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.helpToolStripMenuItem });
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(384, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(528, 35);
+            this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
-
+            // 
             // helpToolStripMenuItem
+            // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.aboutToolStripMenuItem });
+            this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(65, 29);
             this.helpToolStripMenuItem.Text = "Help";
-
+            // 
             // aboutToolStripMenuItem
+            // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(164, 34);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-
-            // ── lblTitle ────────────────────────────────────────────
+            // 
+            // lblTitle
+            // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(118, 40);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Symbol", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(123, 19);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(128, 24);
+            this.lblTitle.Size = new System.Drawing.Size(278, 65);
+            this.lblTitle.TabIndex = 8;
             this.lblTitle.Text = "Login Form";
             this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
-
-            // ── label1  (Username) ──────────────────────────────────
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(60, 95);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(121, 177);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.Text = "Username";
+            this.label1.Size = new System.Drawing.Size(273, 100);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Welcome";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-
-            // ── textBox_userName ────────────────────────────────────
-            this.textBox_userName.Location = new System.Drawing.Point(150, 92);
+            this.label1.Enter += new System.EventHandler(this.label1_Enter);
+            this.label1.Leave += new System.EventHandler(this.label1_Leave);
+            // 
+            // textBox_userName
+            // 
+            this.textBox_userName.Location = new System.Drawing.Point(31, 55);
+            this.textBox_userName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_userName.Name = "textBox_userName";
-            this.textBox_userName.Size = new System.Drawing.Size(160, 20);
-
-            // ── label2  (Password) ──────────────────────────────────
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 135);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.Text = "Password";
-
-            // ── textBox_pass ────────────────────────────────────────
-            this.textBox_pass.Location = new System.Drawing.Point(150, 132);
+            this.textBox_userName.Size = new System.Drawing.Size(348, 27);
+            this.textBox_userName.TabIndex = 6;
+            // 
+            // textBox_pass
+            // 
+            this.textBox_pass.Location = new System.Drawing.Point(31, 100);
+            this.textBox_pass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_pass.Name = "textBox_pass";
             this.textBox_pass.PasswordChar = '*';
-            this.textBox_pass.Size = new System.Drawing.Size(160, 20);
-
-            // ── button_LogIn ────────────────────────────────────────
-            this.button_LogIn.Location = new System.Drawing.Point(120, 175);
+            this.textBox_pass.Size = new System.Drawing.Size(348, 27);
+            this.textBox_pass.TabIndex = 4;
+            // 
+            // button_LogIn
+            // 
+            this.button_LogIn.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_LogIn.Location = new System.Drawing.Point(79, 149);
+            this.button_LogIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_LogIn.Name = "button_LogIn";
-            this.button_LogIn.Size = new System.Drawing.Size(75, 23);
+            this.button_LogIn.Size = new System.Drawing.Size(240, 57);
+            this.button_LogIn.TabIndex = 3;
             this.button_LogIn.Text = "Login";
             this.button_LogIn.UseVisualStyleBackColor = true;
             this.button_LogIn.Click += new System.EventHandler(this.button_LogIn_Click);
-
-            // ── button_Exit ─────────────────────────────────────────
-            this.button_Exit.Location = new System.Drawing.Point(210, 175);
+            // 
+            // button_Exit
+            // 
+            this.button_Exit.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Exit.Location = new System.Drawing.Point(79, 217);
+            this.button_Exit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_Exit.Name = "button_Exit";
-            this.button_Exit.Size = new System.Drawing.Size(75, 23);
+            this.button_Exit.Size = new System.Drawing.Size(240, 57);
+            this.button_Exit.TabIndex = 2;
             this.button_Exit.Text = "Exit";
             this.button_Exit.UseVisualStyleBackColor = true;
             this.button_Exit.Click += new System.EventHandler(this.button_Exit_Click);
-
-            // ── lblLoginError ───────────────────────────────────────
-            this.lblLoginError.AutoSize = false;
+            // 
+            // lblLoginError
+            // 
             this.lblLoginError.ForeColor = System.Drawing.Color.Red;
-            this.lblLoginError.Location = new System.Drawing.Point(60, 210);
+            this.lblLoginError.Location = new System.Drawing.Point(67, 425);
+            this.lblLoginError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLoginError.Name = "lblLoginError";
-            this.lblLoginError.Size = new System.Drawing.Size(264, 18);
-            this.lblLoginError.Text = "";
+            this.lblLoginError.Size = new System.Drawing.Size(396, 26);
+            this.lblLoginError.TabIndex = 1;
             this.lblLoginError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblLoginError.Visible = false;
-
-            // ── linkLabel_SignUp  (NEW) ─────────────────────────────
+            // 
+            // linkLabel_SignUp
+            // 
             this.linkLabel_SignUp.AutoSize = true;
-            this.linkLabel_SignUp.Location = new System.Drawing.Point(103, 238);
+            this.linkLabel_SignUp.Location = new System.Drawing.Point(140, 589);
+            this.linkLabel_SignUp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel_SignUp.Name = "linkLabel_SignUp";
-            this.linkLabel_SignUp.Size = new System.Drawing.Size(178, 13);
-            this.linkLabel_SignUp.Text = "Don't have an account? Sign Up";
+            this.linkLabel_SignUp.Size = new System.Drawing.Size(234, 19);
+            this.linkLabel_SignUp.TabIndex = 0;
+            this.linkLabel_SignUp.TabStop = true;
+            this.linkLabel_SignUp.Text = "Don\'t have an account? Sign Up";
             this.linkLabel_SignUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_SignUp_LinkClicked);
-
-            // ── Form1 ───────────────────────────────────────────────
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel1.Controls.Add(this.lblTitle);
+            this.panel1.Location = new System.Drawing.Point(0, 38);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(528, 100);
+            this.panel1.TabIndex = 10;
+            // 
+            // AAA
+            // 
+            this.AAA.Controls.Add(this.textBox_userName);
+            this.AAA.Controls.Add(this.textBox_pass);
+            this.AAA.Controls.Add(this.button_Exit);
+            this.AAA.Controls.Add(this.button_LogIn);
+            this.AAA.Location = new System.Drawing.Point(55, 248);
+            this.AAA.Name = "AAA";
+            this.AAA.Size = new System.Drawing.Size(408, 321);
+            this.AAA.TabIndex = 9;
+            this.AAA.TabStop = false;
+            this.AAA.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 271);
+            this.ClientSize = new System.Drawing.Size(528, 644);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.AAA);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.linkLabel_SignUp);
             this.Controls.Add(this.lblLoginError);
-            this.Controls.Add(this.button_Exit);
-            this.Controls.Add(this.button_LogIn);
-            this.Controls.Add(this.textBox_pass);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox_userName);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.AAA.ResumeLayout(false);
+            this.AAA.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -152,12 +208,13 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox_userName;
         private System.Windows.Forms.TextBox textBox_pass;
         private System.Windows.Forms.Button button_LogIn;
         private System.Windows.Forms.Button button_Exit;
         private System.Windows.Forms.Label lblLoginError;
         private System.Windows.Forms.LinkLabel linkLabel_SignUp;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox AAA;
     }
 }

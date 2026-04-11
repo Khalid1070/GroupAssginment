@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -15,6 +16,12 @@ namespace GroupAssginment
         {
             lblLoginError.Text = "";
             lblLoginError.Visible = false;
+
+            usernameTextBox.Text = "Username";
+            usernameTextBox.ForeColor = Color.Gray;
+
+            textBox_pass.Text = "Password";
+            textBox_pass.ForeColor = Color.Gray;
         }
 
         private void lblTitle_Click(object sender, EventArgs e)
@@ -113,6 +120,29 @@ namespace GroupAssginment
         {
             SignUp signUpForm = new SignUp();
             signUpForm.ShowDialog();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Enter(object sender, EventArgs e)
+        {
+            if (usernameTextBox.Text == "Username")
+            {
+                usernameTextBox.Text = "";
+                usernameTextBox.ForeColor = Color.Black;
+            }
+        }
+
+        private void label1_Leave(object sender, EventArgs e)
+        {
+            if (usernameTextBox.Text.Trim() == "")
+            {
+                usernameTextBox.Text = "Username";
+                usernameTextBox.ForeColor = Color.Gray;
+            }
         }
     }
 }
