@@ -15,6 +15,15 @@ namespace GroupAssginment
         {
             lblError.Text = "";
             lblError.Visible = false;
+
+            textBox_userName.Text = "Username (email)";  // Set placeholder text
+            textBox_userName.ForeColor = System.Drawing.Color.Gray;
+
+            textBox_pass.Text = "Password";  // Set placeholder text
+            textBox_pass.ForeColor = System.Drawing.Color.Gray;
+
+            comboBox1.Text = "Select Role";  // Set placeholder text
+            comboBox1.ForeColor = System.Drawing.Color.Gray;
         }
 
 
@@ -74,10 +83,10 @@ namespace GroupAssginment
             lblError.Text = "";
             lblError.Visible = false;
 
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text.Trim();
-            string role = cmbRole.SelectedItem != null
-                              ? cmbRole.SelectedItem.ToString()
+            string username = textBox_userName.Text.Trim();
+            string password = textBox_pass.Text.Trim();
+            string role = comboBox1.SelectedItem != null
+                              ? comboBox1.SelectedItem.ToString()
                               : "";
 
             if (username == "" || password == "" || role == "")
@@ -136,11 +145,73 @@ namespace GroupAssginment
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            txtUsername.Text = "";
-            txtPassword.Text = "";
-            cmbRole.SelectedIndex = -1;
+            textBox_userName.Text = "";
+            textBox_pass.Text = "";
+            comboBox1.SelectedIndex = -1;
             lblError.Text = "";
             lblError.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_userName_Enter(object sender, EventArgs e)
+        {
+            textBox_userName.ForeColor = System.Drawing.Color.Black;
+            textBox_userName.Text = "";
+        }
+
+        private void textBox_userName_Leave(object sender, EventArgs e)
+        {
+            textBox_userName.ForeColor = System.Drawing.Color.Gray;
+            if (textBox_userName.Text.Trim() == "")
+            {
+                textBox_userName.Text = "Username (email)";
+            }
+        }
+
+        private void textBox_pass_Enter(object sender, EventArgs e)
+        {
+            textBox_pass.ForeColor = System.Drawing.Color.Black;
+            textBox_pass.Text = "";
+        }
+
+        private void textBox_pass_Leave(object sender, EventArgs e)
+        {
+            textBox_pass.ForeColor = System.Drawing.Color.Gray;
+            if (textBox_pass.Text.Trim() == "")
+            {
+                textBox_pass.Text = "Password";
+            }
+        }
+
+        private void comboBox1_Enter(object sender, EventArgs e)
+        {
+            comboBox1.ForeColor = System.Drawing.Color.Black;
+            comboBox1.Text = "";
+        }
+
+        private void comboBox1_Leave(object sender, EventArgs e)
+        {
+            comboBox1.ForeColor = System.Drawing.Color.Gray;
+            comboBox1.Text = "Select Role";
+        }
+
+        private void button_Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

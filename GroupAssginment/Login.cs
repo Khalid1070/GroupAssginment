@@ -17,20 +17,19 @@ namespace GroupAssginment
             lblLoginError.Text = "";
             lblLoginError.Visible = false;
 
-            usernameTextBox.Text = "Username";
-            usernameTextBox.ForeColor = Color.Gray;
+            textBox_userName.Text = "Username";  // Set placeholder text
+            textBox_userName.ForeColor = Color.Gray;
 
-            textBox_pass.Text = "Password";
+            textBox_pass.Text = "Password";  // Set placeholder text
             textBox_pass.ForeColor = Color.Gray;
         }
 
         private void lblTitle_Click(object sender, EventArgs e)
         {
+
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
+    
 
         private void button_LogIn_Click(object sender, EventArgs e)
         {
@@ -101,10 +100,7 @@ namespace GroupAssginment
             }
         }
 
-        private void button_Exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+    
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -122,27 +118,68 @@ namespace GroupAssginment
             signUpForm.ShowDialog();
         }
 
+        private void button_Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void textBox_pass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_userName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_userName_Enter(object sender, EventArgs e)
+        {
+            if (textBox_userName.Text == "Username")
+            {
+                textBox_userName.Text = "";  // Clear placeholder text
+                textBox_userName.ForeColor = Color.Black; // Change to normal text color
+            }
+        }
+
+        private void textBox_userName_Leave(object sender, EventArgs e)
+        {
+            if (textBox_userName.Text == "")
+            {
+                textBox_userName.Text = "Username";  // Reset to placeholder text
+                textBox_userName.ForeColor = Color.Gray; // Reset to placeholder style
+            }
+
+        }
+        
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Enter(object sender, EventArgs e)
+        private void textBox_pass_Enter(object sender, EventArgs e)
         {
-            if (usernameTextBox.Text == "Username")
+            if (textBox_pass.Text == "Password")
             {
-                usernameTextBox.Text = "";
-                usernameTextBox.ForeColor = Color.Black;
+                textBox_pass.Text = "";
+                textBox_pass.ForeColor = Color.Black;  // Change to normal text color
+                textBox_pass.UseSystemPasswordChar = true; // Hide password characters
             }
         }
 
-        private void label1_Leave(object sender, EventArgs e)
+        private void textBox_pass_Leave(object sender, EventArgs e)
         {
-            if (usernameTextBox.Text.Trim() == "")
+            if (textBox_pass.Text == "")
             {
-                usernameTextBox.Text = "Username";
-                usernameTextBox.ForeColor = Color.Gray;
+                textBox_pass.Text = "Password";
+                textBox_pass.ForeColor = Color.Gray;  // Reset to placeholder style
+                textBox_pass.UseSystemPasswordChar = false; // Show password characters
             }
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
