@@ -13,8 +13,8 @@ namespace GroupAssginment
 
         private void SignUp_Load(object sender, EventArgs e)
         {
-            lblError.Text = "";
-            lblError.Visible = false;
+            lblSignUpError.Text = "";
+            lblSignUpError.Visible = false;
 
             textBox_userName.Text = "Username (email)";  // Set placeholder text
             textBox_userName.ForeColor = System.Drawing.Color.Gray;
@@ -77,39 +77,118 @@ namespace GroupAssginment
             return upperCount >= 2 && lowerCount >= 2 && digitCount >= 1;
         }
 
-
-        private void btnSignUp_Click(object sender, EventArgs e)
+        private bool IsValidRole(string role)
         {
-            lblError.Text = "";
-            lblError.Visible = false;
+            return role == "Student" || role == "Faculty";
+        }
+
+
+
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_userName_Enter(object sender, EventArgs e)
+        {
+            textBox_userName.ForeColor = System.Drawing.Color.Black;
+            if (textBox_userName.Text == "Username (email)")
+            {
+                textBox_userName.Text = "";
+            }
+        }
+
+        private void textBox_userName_Leave(object sender, EventArgs e)
+        {
+           
+            if (textBox_userName.Text.Trim() == "")
+            {
+                textBox_userName.ForeColor = System.Drawing.Color.Gray;
+                textBox_userName.Text = "Username (email)";
+            }
+        }
+
+        private void textBox_pass_Enter(object sender, EventArgs e)
+        {
+            textBox_pass.ForeColor = System.Drawing.Color.Black;
+            if (textBox_pass.Text == "Password")
+            {
+                textBox_pass.Text = "";
+            }
+        }
+
+        private void textBox_pass_Leave(object sender, EventArgs e)
+        {
+            
+            if (textBox_pass.Text.Trim() == "")
+            {
+                textBox_pass.ForeColor = System.Drawing.Color.Gray;
+                textBox_pass.Text = "Password";
+            }
+        }
+
+        private void comboBox1_Enter(object sender, EventArgs e)
+        {
+            comboBox1.ForeColor = System.Drawing.Color.Black;
+            comboBox1.Text = "";
+        }
+
+        private void comboBox1_Leave(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == -1)
+            {
+                comboBox1.ForeColor = System.Drawing.Color.Gray;
+                comboBox1.Text = "Select Role";
+            }
+        }
+
+
+        private void button_LogIn_Click(object sender, EventArgs e)
+        {
+            lblSignUpError.Text = "";
+            lblSignUpError.Visible = false;
 
             string username = textBox_userName.Text.Trim();
             string password = textBox_pass.Text.Trim();
-            string role = comboBox1.SelectedItem != null
-                              ? comboBox1.SelectedItem.ToString()
-                              : "";
+            string role;
+
+            if (comboBox1.SelectedItem != null)
+            {
+                role = comboBox1.SelectedItem.ToString();
+            }
+            else
+            {
+                role = "";
+            }
 
             if (username == "" || password == "" || role == "")
             {
-                lblError.Text = "Please fill in all fields.";
-                lblError.Visible = true;
+                lblSignUpError.Text = "Please fill in all fields.";
+                lblSignUpError.Visible = true;
                 return;
             }
 
             if (!IsValidEmail(username))
             {
-                lblError.Text = "Invalid email. Example: user@sub.domain";
-                lblError.Visible = true;
+                lblSignUpError.Text = "Invalid email. Example: user@sub.domain";
+                lblSignUpError.Visible = true;
                 return;
             }
 
             if (!IsValidPassword(password))
             {
-                lblError.Text = "Password needs 7+ chars, 2 uppercase, 2 lowercase, 1 digit.";
-                lblError.Visible = true;
+                lblSignUpError.Text = "Password needs 7+ chars, 2 uppercase, 2 lowercase, 1 digit.";
+                lblSignUpError.Visible = true;
                 return;
             }
 
+            if (!IsValidRole(role))
+            {
+                lblSignUpError.Text = "Please select a role";
+                lblSignUpError.Visible= true;
+                return;
+            }
             string filePath = System.IO.Path.Combine(Application.StartupPath, "users.txt");
 
             if (File.Exists(filePath))
@@ -122,8 +201,8 @@ namespace GroupAssginment
                     if (parts.Length >= 1 && parts[0] == username)
                     {
                         checkFile.Close();
-                        lblError.Text = "Username already exists. Please choose another.";
-                        lblError.Visible = true;
+                        lblSignUpError.Text = "Username already exists. Please choose another.";
+                        lblSignUpError.Visible = true;
                         return;
                     }
                 }
@@ -142,76 +221,19 @@ namespace GroupAssginment
             this.Close(); // Return to Login Form
         }
 
-
-        private void btnReset_Click(object sender, EventArgs e)
+        private void button_reset_Click(object sender, EventArgs e)
         {
             textBox_userName.Text = "";
             textBox_pass.Text = "";
             comboBox1.SelectedIndex = -1;
-            lblError.Text = "";
-            lblError.Visible = false;
+            lblSignUpError.Text = "";
+            lblSignUpError.Visible = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_userName_Enter(object sender, EventArgs e)
-        {
-            textBox_userName.ForeColor = System.Drawing.Color.Black;
-            textBox_userName.Text = "";
-        }
-
-        private void textBox_userName_Leave(object sender, EventArgs e)
-        {
-            textBox_userName.ForeColor = System.Drawing.Color.Gray;
-            if (textBox_userName.Text.Trim() == "")
-            {
-                textBox_userName.Text = "Username (email)";
-            }
-        }
-
-        private void textBox_pass_Enter(object sender, EventArgs e)
-        {
-            textBox_pass.ForeColor = System.Drawing.Color.Black;
-            textBox_pass.Text = "";
-        }
-
-        private void textBox_pass_Leave(object sender, EventArgs e)
-        {
-            textBox_pass.ForeColor = System.Drawing.Color.Gray;
-            if (textBox_pass.Text.Trim() == "")
-            {
-                textBox_pass.Text = "Password";
-            }
-        }
-
-        private void comboBox1_Enter(object sender, EventArgs e)
-        {
-            comboBox1.ForeColor = System.Drawing.Color.Black;
-            comboBox1.Text = "";
-        }
-
-        private void comboBox1_Leave(object sender, EventArgs e)
-        {
-            comboBox1.ForeColor = System.Drawing.Color.Gray;
-            comboBox1.Text = "Select Role";
-        }
-
-        private void button_Exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            MessageBox.Show("Team Members:\nMuneeb Al Talaq - 202367270\nAnas Bendania - 202467940\nKhalid Alghamdi - 202185210",
+                            "About");
         }
     }
 }

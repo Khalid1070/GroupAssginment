@@ -14,8 +14,8 @@ namespace GroupAssginment
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            lblLoginError.Text = "";
-            lblLoginError.Visible = false;
+            label_login_error.Text = "";
+            label_login_error.Visible = false;
 
             textBox_userName.Text = "Username";  // Set placeholder text
             textBox_userName.ForeColor = Color.Gray;
@@ -34,16 +34,16 @@ namespace GroupAssginment
         private void button_LogIn_Click(object sender, EventArgs e)
         {
             // Clear old error message
-            lblLoginError.Text = "";
-            lblLoginError.Visible = false;
+            label_login_error.Text = "";
+            label_login_error.Visible = false;
 
             string username = textBox_userName.Text.Trim();
             string password = textBox_pass.Text.Trim();
 
-            if (username == "" || password == "")
+            if (username == "Useername" || password == "Password")
             {
-                lblLoginError.Text = "Please enter both username and password.";
-                lblLoginError.Visible = true;
+                label_login_error.Text = "Please enter both username and password.";
+                label_login_error.Visible = true;
                 return;
             }
 
@@ -52,8 +52,8 @@ namespace GroupAssginment
 
             if (!File.Exists(filePath))
             {
-                lblLoginError.Text = "No accounts found. Please sign up first.";
-                lblLoginError.Visible = true;
+                label_login_error.Text = "No accounts found. Please sign up first.";
+                label_login_error.Visible = true;
                 return;
             }
 
@@ -74,8 +74,8 @@ namespace GroupAssginment
                     if (username == fileUser && password == filePass)
                     {
                         found = true;
-                        lblLoginError.Text = "";
-                        lblLoginError.Visible = false;
+                        label_login_error.Text = "";
+                        label_login_error.Visible = false;
 
                         if (job == "Student")
                         {
@@ -95,8 +95,9 @@ namespace GroupAssginment
 
             if (!found)
             {
-                lblLoginError.Text = "Invalid username or password.";
-                lblLoginError.Visible = true;
+                label_login_error.ForeColor = Color.Red;
+                label_login_error.Text = "Invalid username or password.";
+                label_login_error.Visible = true;
             }
         }
 
@@ -137,6 +138,8 @@ namespace GroupAssginment
         {
             if (textBox_userName.Text == "Username")
             {
+                label_login_error.Text = "";
+
                 textBox_userName.Text = "";  // Clear placeholder text
                 textBox_userName.ForeColor = Color.Black; // Change to normal text color
             }
@@ -161,6 +164,8 @@ namespace GroupAssginment
         {
             if (textBox_pass.Text == "Password")
             {
+                label_login_error.Text = "";
+
                 textBox_pass.Text = "";
                 textBox_pass.ForeColor = Color.Black;  // Change to normal text color
                 textBox_pass.UseSystemPasswordChar = true; // Hide password characters

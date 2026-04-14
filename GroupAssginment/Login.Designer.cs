@@ -28,6 +28,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_login_error = new System.Windows.Forms.Label();
             this.AAA.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -117,6 +118,7 @@
             // AAA
             // 
             this.AAA.BackColor = System.Drawing.SystemColors.Control;
+            this.AAA.Controls.Add(this.label_login_error);
             this.AAA.Controls.Add(this.textBox_userName);
             this.AAA.Controls.Add(this.textBox_pass);
             this.AAA.Controls.Add(this.button_Exit);
@@ -179,6 +181,14 @@
             this.panel1.Size = new System.Drawing.Size(528, 100);
             this.panel1.TabIndex = 10;
             // 
+            // label_login_error
+            // 
+            this.label_login_error.Location = new System.Drawing.Point(31, 23);
+            this.label_login_error.Name = "label_login_error";
+            this.label_login_error.Size = new System.Drawing.Size(348, 20);
+            this.label_login_error.TabIndex = 7;
+            this.label_login_error.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -222,5 +232,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label_login_error;
     }
 }
